@@ -43,14 +43,6 @@ cursor.execute("""
     );
 """)
 
-# Read CSV and insert data
-# csv_file = "../drug_data_no_nans.csv"
-# with open(csv_file, "r") as f:
-#     reader = csv.reader(f)
-#     next(reader)  # Skip header row
-#     for row in reader:
-#         cursor.execute("INSERT INTO drug_side_effect_table (stitch_id_1, stitch_id_2, side_effect_id, side_effect_name, drug_name_1, drug_name_2) VALUES  (%s, %s, %s, %s, %s, %s)", tuple(row[1:]))
-
 csv_file = "../drug_data_no_nans.csv"
 
 with open(csv_file, "r", newline='', encoding="utf-8") as f:
@@ -59,7 +51,6 @@ with open(csv_file, "r", newline='', encoding="utf-8") as f:
     cursor.copy_from(f, 'drug_side_effect_table', sep=',', columns=('num_row','stitch_id_1', 'stitch_id_2', 'side_effect_id', 'side_effect_name', 'drug_name_1', 'drug_name_2'))
 
 
-# Commit changes and close connection
 conn.commit()
 cursor.close()
 conn.close()

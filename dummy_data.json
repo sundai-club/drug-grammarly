@@ -1,0 +1,13 @@
+{
+    "age": 45,
+    "sex": "Male",
+    "disease": "Hypertension",
+    "ethnicity": "Hispanic",
+    "past_medications": ["Lisinopril"],
+    "current_medications": ["Amlodipine"],
+    "supplements": ["Vitamin D", "Omega-3"],
+    "allergies": ["Penicillin"],
+    "adverse_events": ["Dizziness from Lisinopril"],
+    "family_history": ["Father had heart disease"],
+    "test_drug": "Lisinopril"
+  }
