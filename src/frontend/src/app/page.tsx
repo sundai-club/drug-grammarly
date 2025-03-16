@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "MedSafety - Drug Interaction Analyzer",
@@ -53,7 +52,7 @@ export default function Home() {
             </div>
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
               <div className="text-blue-500 font-bold text-xl mb-2">2</div>
-              <p className="text-gray-600 dark:text-gray-300">Add new medications you're considering</p>
+              <p className="text-gray-600 dark:text-gray-300">Add new medications you&apos;re considering</p>
             </div>
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
               <div className="text-blue-500 font-bold text-xl mb-2">3</div>
@@ -63,7 +62,7 @@ export default function Home() {
         </section>
 
         <footer className="mt-20 text-center text-gray-500 dark:text-gray-400">
-          <p> {new Date().getFullYear()} MedSafety. All rights reserved.</p>
+          <p>{new Date().getFullYear()} MedSafety. All rights reserved.</p>
           <p className="mt-2 text-sm">Always consult with a healthcare professional before making decisions about your medications.</p>
         </footer>
       </div>
