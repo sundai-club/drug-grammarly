@@ -2,6 +2,9 @@ from fastapi import FastAPI
 from src.drug_interaction import analyze_drug_interactions
 from src.db_utils import search_drugs
 from src.final_report import generate_final_report
+from fastapi.middleware.cors import CORSMiddleware
+
+
 
 api_key = "ADD YOU GEMINI API KEY"
 search_api_key = "ADD YOUR GOOGLE CUSTOM SEARCH API"
@@ -11,6 +14,15 @@ drug1 = "ibuprofen"
 drug2 = "aspirin"
 
 app = FastAPI()
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/analyze")
