@@ -3,7 +3,7 @@ from src.drug_interaction import analyze_drug_interactions
 from src.db_utils import search_drugs
 from src.final_report import generate_final_report
 from fastapi.middleware.cors import CORSMiddleware
-
+import time
 
 
 api_key = "ADD YOU GEMINI API KEY"
@@ -47,6 +47,7 @@ async def analyze_interaction(patient_data: dict):
     for combination in drug_combinations:
         drug1 = combination[0]
         drug2 = combination[1]
+        time.sleep(1)
         results = search_drugs(drug1, drug2)
         db_results.append(results)
         reports.append(analyze_drug_interactions(drug1, drug2))
