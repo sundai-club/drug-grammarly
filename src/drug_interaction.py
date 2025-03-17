@@ -15,9 +15,11 @@ def analyze_drug_interactions(drug1, drug2):
     search_text_results = {}
     for result in search_results:
         url = result["url"]
-        text = scrape_text_from_url(url)["scraped_text"]
         time.sleep(1)
-        search_text_results[url] = {"text": text, "title": result["title"]}
+        text = scrape_text_from_url(url)
+        if text is not None:
+            text = text["scraped_text"]
+            search_text_results[url] = {"text": text, "title": result["title"]}
 
     sources_text = "\n\n".join([f"## {result['title']}\n{result['text']}" for result in search_text_results.values()])
     
