@@ -2,6 +2,7 @@ import os
 from src.web_search import brave_search
 from src.scraper import scrape_text_from_url
 from src.openai_api import OpenAIAPI
+import time
 
 
 openai_api = OpenAIAPI()
@@ -15,6 +16,7 @@ def analyze_drug_interactions(drug1, drug2):
     for result in search_results:
         url = result["url"]
         text = scrape_text_from_url(url)["scraped_text"]
+        time.sleep(1)
         search_text_results[url] = {"text": text, "title": result["title"]}
 
     sources_text = "\n\n".join([f"## {result['title']}\n{result['text']}" for result in search_text_results.values()])
